@@ -1,0 +1,237 @@
+[gd_scene load_steps=20 format=4 uid="uid://1n340fkai7j4"]
+
+[ext_resource type="Script" uid="uid://d2vkfxd0ifcqn" path="res://Scripts/computer.gd" id="1_okq71"]
+[ext_resource type="Texture2D" uid="uid://bormvtoyuj10o" path="res://Assets/icon.svg" id="2_wosnj"]
+[ext_resource type="Script" uid="uid://cm2s1qijrh2xq" path="res://Scripts/player_camera.gd" id="3_t3l2h"]
+[ext_resource type="Shader" uid="uid://dcvr6r1j1k4vq" path="res://Scenes/crt_shader.gdshader" id="3_wosnj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5arm"]
+albedo_color = Color(0.334122, 0.334122, 0.334122, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_4arys"]
+resource_local_to_scene = true
+size = Vector2(0.4, 0.3)
+
+[sub_resource type="Theme" id="Theme_wosnj"]
+TabContainer/font_sizes/font_size = 24
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t3l2h"]
+shader = ExtResource("3_wosnj")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.108
+shader_parameter/grille_opacity = 0.265
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 3.97
+shader_parameter/roll_size = 9.975
+shader_parameter/roll_variation = 1.48
+shader_parameter/distort_intensity = 0.024
+shader_parameter/noise_opacity = 0.254
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.226
+shader_parameter/aberration = 0.015
+shader_parameter/brightness = 1.45
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.165
+shader_parameter/vignette_opacity = 0.2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wosnj"]
+viewport_path = NodePath("Computer/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3l2h"]
+resource_local_to_scene = true
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(2.573, 4.779, 6.985, 1)
+albedo_texture = SubResource("ViewportTexture_wosnj")
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfpdp"]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_u3ios"]
+_surfaces = [{
+"aabb": AABB(-0.399709, -0.3, -0.00859782, 0.799418, 0.6, 0.0335679),
+"format": 34896613377,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABgAEAAUABgAFAAcACAAGAAcACAAHAAkACgAIAAkACgAJAAsA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("DM0AAHhVAAD///////8AAAzN//94VQAA//8AAP//AAC5mQAAAAAAALmZ//8AAAAARWYAAAAAAABFZv//AAAAAPIyAAB4VQAA8jL//3hVAAAAAAAA//8AAAAA/////wAA")
+}, {
+"aabb": AABB(-0.399709, -0.3, -0.00859782, 0.799418, 0.6, 0.053264),
+"format": 34359742465,
+"index_count": 102,
+"index_data": PackedByteArray("AAARAAIAEgACABEAEgAEAAIAAAAMABEABAASAA0ADQASABEADQARAAwABAANAAsAAwAMAAAACwANABMAEwANAAwACwATAAoAAwAUAAwAEwAMABQAAQAUAAMACgATABUAFQATABQACgAVAAkAAQAWABQAFQAUABYABgAWAAEACQAVAA8ADwAVABYACQAPAAgABgAOABYADwAWAA4ABQAOAAYACAAPABAAEAAPAA4ACAAQAAcABQAXAA4AEAAOABcABwAXAAUABwAQABcA"),
+"lods": [0.0171389, PackedByteArray("AAAMAAIAAwAMAAAAAQAMAAMADQACAAwADQAEAAIAAQAOAAwADQAMAA4ABgAOAAEABAANAAsACwANAAoABQAOAAYACgANAAkACQANAA8ADwANAA4ACQAPAAgAEAAOAAUAEAAPAA4ACAAPABAABwAQAAUACAAQAAcA"), 0.0335255, PackedByteArray("AAABAAIAAwABAAAABAACAAEABQABAAYABwABAAUABwAIAAEACAAEAAEACQAEAAgACgAEAAkACwAEAAoA")],
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("pmF2vpqZmT5ABis7f4WkPZqZmT7c3Qy8oqbMvpqZmT76jcw8f4WkvZqZmT7c3Qy8oqbMvpqZmb76jcw8oqbMPpqZmT76jcw8pmF2PpqZmT5ABis7oqbMPpqZmb76jcw8pmF2PpqZmb5ABis7f4WkPZqZmb7c3Qy8f4WkvZqZmb7c3Qy8pmF2vpqZmb5ABis7nj10vpqZmT4OUrg8nj10vpqZmb4OUrg8nj10PpqZmT4OUrg8nj10PpqZmb4OUrg8bd/KPpqZmb7n8zY9bd/KvpqZmT7n8zY9bd/KvpqZmb7n8zY9jRejvZqZmb4enTo8jRejvZqZmT4enTo8jRejPZqZmb4enTo8jRejPZqZmT4enTo8bd/KPpqZmT7n8zY9")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a8auw"]
+resource_local_to_scene = true
+resource_name = "computer_screen_Cube"
+_surfaces = [{
+"aabb": AABB(-0.399709, -0.3, -0.00859782, 0.799418, 0.6, 0.0335679),
+"attribute_data": PackedByteArray("gJn//wiA/H+Amfx/CID//yez//8ns/x/38z//9/M/H+H5v7/h+b8f////v/+//x/"),
+"format": 34896613399,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABgAEAAUABgAFAAcACAAGAAcACAAHAAkACgAIAAkACgAJAAsA"),
+"material": SubResource("StandardMaterial3D_t3l2h"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(2.00055, 2.00019, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("DM0AAHhVC/z///////834wzN//94VQv8//8AAP//N+O5mQAAAACu/rmZ//8AAK7+RWYAAAAArv5FZv//AACu/vIyAAB4VQv88jL//3hVC/wAAAAA//834wAA/////zfjFX5vJsFSCQlvpukBCYk+LVp/jiWNpaQAcVpa/6SAcNqPWRX+6YGP2T2t9fb1dsDS")
+}, {
+"aabb": AABB(-0.399709, -0.3, -0.00859782, 0.799418, 0.6, 0.053264),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/"),
+"format": 34359742487,
+"index_count": 102,
+"index_data": PackedByteArray("AAARAAIAEgACABEAEgAEAAIAAAAMABEABAASAA0ADQASABEADQARAAwABAANAAsAAwAMAAAACwANABMAEwANAAwACwATAAoAAwAUAAwAEwAMABQAAQAUAAMACgATABUAFQATABQACgAVAAkAAQAWABQAFQAUABYABgAWAAEACQAVAA8ADwAVABYACQAPAAgABgAOABYADwAWAA4ABQAOAAYACAAPABAAEAAPAA4ACAAQAAcABQAXAA4AEAAOABcABwAXAAUABwAQABcA"),
+"lods": [0.0171389, PackedByteArray("AAAMAAIAAwAMAAAAAQAMAAMADQACAAwADQAEAAIAAQAOAAwADQAMAA4ABgAOAAEABAANAAsACwANAAoABQAOAAYACgANAAkACQANAA8ADwANAA4ACQAPAAgAEAAOAAUAEAAPAA4ACAAPABAABwAQAAUACAAQAAcA"), 0.0335255, PackedByteArray("AAABAAIAAwABAAAABAACAAEABQABAAYABwABAAUABwAIAAEACAAEAAEACQAEAAgACgAEAAkACwAEAAoA")],
+"material": SubResource("StandardMaterial3D_sfpdp"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("pmF2vpqZmT5ABis7f4WkPZqZmT7c3Qy8oqbMvpqZmT76jcw8f4WkvZqZmT7c3Qy8oqbMvpqZmb76jcw8oqbMPpqZmT76jcw8pmF2PpqZmT5ABis7oqbMPpqZmb76jcw8pmF2PpqZmb5ABis7f4WkPZqZmb7c3Qy8f4WkvZqZmb7c3Qy8pmF2vpqZmb5ABis7nj10vpqZmT4OUrg8nj10vpqZmb4OUrg8nj10PpqZmT4OUrg8nj10PpqZmb4OUrg8bd/KPpqZmb7n8zY9bd/KvpqZmT7n8zY9bd/KvpqZmb7n8zY9jRejvZqZmb4enTo8jRejvZqZmT4enTo8jRejPZqZmb4enTo8jRejPZqZmT4enTo8bd/KPpqZmT7n8zY9RzyO+f///z/Gwcf9////P+Eqss7///8/OD7H/f///z/hKkwx////Px3Vss7///8/t8OO+f///z8d1Uwx////P7fDcAb///8/xsE3Av///z84PjcC////P0c8cAb///8/Toaxvf///z9Ohk1C////P7B5sb3///8/sHlNQv///z+zo9dU////P0tcJ6v///8/S1zXVP///z8rglxA////PyuCor////8/031cQP///z/TfaK/////P7OjJ6v///8/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_u3ios")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ifh66"]
+data = PackedVector3Array(0.2406, -0.3, 0.0026, 0.3997, 0.3, 0.025, 0.2406, 0.3, 0.0026, 0.2406, -0.3, 0.0026, 0.3997, -0.3, 0.025, 0.3997, 0.3, 0.025, 0.0803, -0.3, -0.0086, 0.2406, -0.3, 0.0026, 0.2406, 0.3, 0.0026, 0.0803, -0.3, -0.0086, 0.2406, 0.3, 0.0026, 0.0803, 0.3, -0.0086, -0.0803, -0.3, -0.0086, 0.0803, -0.3, -0.0086, 0.0803, 0.3, -0.0086, -0.0803, -0.3, -0.0086, 0.0803, 0.3, -0.0086, -0.0803, 0.3, -0.0086, -0.2406, -0.3, 0.0026, -0.0803, -0.3, -0.0086, -0.0803, 0.3, -0.0086, -0.2406, -0.3, 0.0026, -0.0803, 0.3, -0.0086, -0.2406, 0.3, 0.0026, -0.3997, -0.3, 0.025, -0.2406, -0.3, 0.0026, -0.2406, 0.3, 0.0026, -0.3997, -0.3, 0.025, -0.2406, 0.3, 0.0026, -0.3997, 0.3, 0.025, -0.2406, 0.3, 0.0026, -0.3962, 0.3, 0.0447, -0.3997, 0.3, 0.025, -0.3962, -0.3, 0.0447, -0.3997, 0.3, 0.025, -0.3962, 0.3, 0.0447, -0.3962, -0.3, 0.0447, -0.3997, -0.3, 0.025, -0.3997, 0.3, 0.025, -0.2406, 0.3, 0.0026, -0.2385, 0.3, 0.0225, -0.3962, 0.3, 0.0447, -0.3997, -0.3, 0.025, -0.3962, -0.3, 0.0447, -0.2385, -0.3, 0.0225, -0.2385, -0.3, 0.0225, -0.3962, -0.3, 0.0447, -0.3962, 0.3, 0.0447, -0.2385, -0.3, 0.0225, -0.3962, 0.3, 0.0447, -0.2385, 0.3, 0.0225, -0.3997, -0.3, 0.025, -0.2385, -0.3, 0.0225, -0.2406, -0.3, 0.0026, -0.0803, 0.3, -0.0086, -0.2385, 0.3, 0.0225, -0.2406, 0.3, 0.0026, -0.2406, -0.3, 0.0026, -0.2385, -0.3, 0.0225, -0.0796, -0.3, 0.0114, -0.0796, -0.3, 0.0114, -0.2385, -0.3, 0.0225, -0.2385, 0.3, 0.0225, -0.2406, -0.3, 0.0026, -0.0796, -0.3, 0.0114, -0.0803, -0.3, -0.0086, -0.0803, 0.3, -0.0086, -0.0796, 0.3, 0.0114, -0.2385, 0.3, 0.0225, -0.0796, -0.3, 0.0114, -0.2385, 0.3, 0.0225, -0.0796, 0.3, 0.0114, 0.0803, 0.3, -0.0086, -0.0796, 0.3, 0.0114, -0.0803, 0.3, -0.0086, -0.0803, -0.3, -0.0086, -0.0796, -0.3, 0.0114, 0.0796, -0.3, 0.0114, 0.0796, -0.3, 0.0114, -0.0796, -0.3, 0.0114, -0.0796, 0.3, 0.0114, -0.0803, -0.3, -0.0086, 0.0796, -0.3, 0.0114, 0.0803, -0.3, -0.0086, 0.0803, 0.3, -0.0086, 0.0796, 0.3, 0.0114, -0.0796, 0.3, 0.0114, 0.0796, -0.3, 0.0114, -0.0796, 0.3, 0.0114, 0.0796, 0.3, 0.0114, 0.2406, 0.3, 0.0026, 0.0796, 0.3, 0.0114, 0.0803, 0.3, -0.0086, 0.0803, -0.3, -0.0086, 0.0796, -0.3, 0.0114, 0.2385, -0.3, 0.0225, 0.2385, -0.3, 0.0225, 0.0796, -0.3, 0.0114, 0.0796, 0.3, 0.0114, 0.0803, -0.3, -0.0086, 0.2385, -0.3, 0.0225, 0.2406, -0.3, 0.0026, 0.2406, 0.3, 0.0026, 0.2385, 0.3, 0.0225, 0.0796, 0.3, 0.0114, 0.2385, -0.3, 0.0225, 0.0796, 0.3, 0.0114, 0.2385, 0.3, 0.0225, 0.3997, 0.3, 0.025, 0.2385, 0.3, 0.0225, 0.2406, 0.3, 0.0026, 0.2406, -0.3, 0.0026, 0.2385, -0.3, 0.0225, 0.3962, -0.3, 0.0447, 0.3962, -0.3, 0.0447, 0.2385, -0.3, 0.0225, 0.2385, 0.3, 0.0225, 0.2406, -0.3, 0.0026, 0.3962, -0.3, 0.0447, 0.3997, -0.3, 0.025, 0.3997, 0.3, 0.025, 0.3962, 0.3, 0.0447, 0.2385, 0.3, 0.0225, 0.3962, -0.3, 0.0447, 0.2385, 0.3, 0.0225, 0.3962, 0.3, 0.0447, 0.3997, -0.3, 0.025, 0.3962, 0.3, 0.0447, 0.3997, 0.3, 0.025, 0.3997, -0.3, 0.025, 0.3962, -0.3, 0.0447, 0.3962, 0.3, 0.0447)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_okq71"]
+
+[sub_resource type="Sky" id="Sky_wosnj"]
+sky_material = SubResource("ProceduralSkyMaterial_okq71")
+
+[sub_resource type="Environment" id="Environment_t3l2h"]
+background_mode = 2
+background_energy_multiplier = 1.02
+sky = SubResource("Sky_wosnj")
+ambient_light_source = 3
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wosnj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8auw"]
+albedo_color = Color(0.113665, 0.113665, 0.113665, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Computer" type="Node3D" parent="."]
+script = ExtResource("1_okq71")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Computer"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Computer/CSGCombiner3D"]
+size = Vector3(0.45, 0.35, 0.4)
+material = SubResource("StandardMaterial3D_i5arm")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Computer/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0611729)
+operation = 2
+size = Vector3(0.4, 0.3, 0.3)
+
+[node name="Quad" type="MeshInstance3D" parent="Computer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.213765)
+visible = false
+mesh = SubResource("QuadMesh_4arys")
+skeleton = NodePath("../..")
+
+[node name="SubViewport" type="SubViewport" parent="Computer"]
+size = Vector2i(1000, 750)
+
+[node name="Control" type="Control" parent="Computer/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_wosnj")
+
+[node name="TabContainer" type="TabContainer" parent="Computer/SubViewport/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="TextureRect" type="TextureRect" parent="Computer/SubViewport/Control/TabContainer"]
+layout_mode = 2
+texture = ExtResource("2_wosnj")
+metadata/_tab_index = 0
+
+[node name="TextureRect2" type="TextureRect" parent="Computer/SubViewport/Control/TabContainer"]
+visible = false
+modulate = Color(2.45467e-06, 0.615723, 0.31067, 1)
+layout_mode = 2
+texture = ExtResource("2_wosnj")
+metadata/_tab_index = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Computer/SubViewport/Control/TabContainer"]
+visible = false
+modulate = Color(0.990857, 0.305122, 0.315717, 1)
+layout_mode = 2
+texture = ExtResource("2_wosnj")
+metadata/_tab_index = 2
+
+[node name="ColorRect" type="ColorRect" parent="Computer/SubViewport/Control"]
+z_index = 1
+material = SubResource("ShaderMaterial_t3l2h")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Screen" type="MeshInstance3D" parent="Computer"]
+transform = Transform3D(-0.5, 0, 7.54979e-08, 0, 0.5, 0, -7.54979e-08, 0, -0.5, 0, 0, 0.213525)
+mesh = SubResource("ArrayMesh_a8auw")
+skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="Computer/Screen"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Computer/Screen/Area3D"]
+shape = SubResource("ConcavePolygonShape3D_ifh66")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.504846)
+script = ExtResource("3_t3l2h")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_t3l2h")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(4, 4, 4)
+material = SubResource("StandardMaterial3D_wosnj")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+operation = 2
+size = Vector3(3, 3, 3)
+material = SubResource("StandardMaterial3D_a8auw")
